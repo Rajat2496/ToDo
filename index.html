@@ -1,0 +1,35 @@
+<html ng-app="ngtodo">
+
+<head>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		ul{
+			border: 1px solid blue
+		}
+		
+	</style>
+</head>
+
+<body>
+
+	<div></div>
+	<div ng-controller="mainController">
+	<input type="text" ng-model='query' placeholder="Search here">
+	<input type="text" ng-model='addtitle'>
+	<input type="text" ng-model='adddetails'>
+	<button ng-click='addTodo(addtitle,adddetails)'>Add Todo</button>
+		<div><ul ng-repeat='list in lists | filter: query'>
+			<h2>{{ list.title | uppercase}}</h2>
+			<p>{{list.details | uppercase}}</p>
+		<button ng-click='deleteTodo($index)' class="fa fa-trash-o"></button>
+		</ul>
+			
+	</div>
+	<div></div>
+	<div></div>
+
+</body>
+
+</html>
